@@ -1,0 +1,54 @@
+<div class="container-fluid cont">
+
+  <h1> Face Recognition </h1>
+  <div class="row">
+    
+      
+            
+              <label for="exampleInputEmail1" style="color:white; margin:1%;">IMAGE URL</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter url image" style="margin: 1%;"  [(ngModel)]="imageUrl">
+              <button class="btn btn-primary" (click)="getPersonAge(imageUrl)" style="margin: 2%">Get Data</button>
+  </div>
+    <div class="row">
+      <div class="col-6">
+           <img class="rounded mx-auto dblock" src="{{ imageUrl }}" style="margin:5%; width:80%; height:80%; ">
+      </div>
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1"> Age </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1"> Gender </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1"> Smile </label>
+            </div>
+      <div class="col-6">
+          <form>
+             
+             
+              
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1" style="color:whitesmoke">Recognition DATA</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"> {{ personAge | json }} </textarea>
+              </div>
+            </form>
+        
+      </div>
+      
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+{{ personAge | json }}
+</div>
