@@ -1,54 +1,107 @@
 <div class="container-fluid cont">
 
   <h1> Face Recognition </h1>
+
+  
   <div class="row">
-    
-      
-            
-              <label for="exampleInputEmail1" style="color:white; margin:1%;">IMAGE URL</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter url image" style="margin: 1%;"  [(ngModel)]="imageUrl">
-              <button class="btn btn-primary" (click)="getPersonAge(imageUrl)" style="margin: 2%">Get Data</button>
-  </div>
-    <div class="row">
-      <div class="col-6">
-           <img class="rounded mx-auto dblock" src="{{ imageUrl }}" style="margin:5%; width:80%; height:80%; ">
+    <label for="exampleInputEmail1" style="color:white; margin:1%;">IMAGE URL:</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter url image"
+      style="margin-left: 1%;margin-right: 1%;" [(ngModel)]="imageUrl">
+      <input type="text" class="form-control"  placeholder="opt"
+      style="margin-left: 1%;margin-right: 1%;" [(ngModel)]="opt">
+    <!-- Option Div-->
+    <div class="div">
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="age" [(ngModel)]="age" [ngModelOptions]="{standalone: true}" >
+        <label class="form-check-label" for="inlineCheckbox1">Age</label>
       </div>
-      <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1"> Age </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1"> Gender </label>
-          </div>
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-              <label class="form-check-label" for="defaultCheck1"> Smile </label>
-            </div>
-      <div class="col-6">
-          <form>
-             
-             
-              
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1" style="color:whitesmoke">Recognition DATA</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"> {{ personAge | json }} </textarea>
-              </div>
-            </form>
-        
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="gender"[(ngModel)]="gender" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Gender</label>
       </div>
-      
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="headPose"[(ngModel)]="headPose" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">HeadPose</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="smile"[(ngModel)]="smile" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Smile</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="facialHair"[(ngModel)]="facialHair" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">FacialHair</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="glasses"[(ngModel)]="glasses" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Glasses</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="emtion"[(ngModel)]="emotion" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Emotion</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="hair"[(ngModel)]="hair" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Hair</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="occlusion"[(ngModel)]="occlusion" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Occlusion</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="accessories"[(ngModel)]="accessoires" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Accessories</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="blur" [(ngModel)]="blur" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Blur</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="exposure"[(ngModel)]="exposure" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Exposure</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="noise"[(ngModel)]="noise" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="inlineCheckbox2">Noise</label>
+      </div>
+
+
+
+
+
+      <!-- Option Div-->
+
     </div>
 
+  </div>
+  <div class="row">
+    
+    <input type="button" class="btn btn-primary" (click)="getPersonAge(imageUrl, opt )" style="margin-left: 2%">
+  </div>
+
+  
+
+  <div class="row">
+    <div class="col-6 ">
+        <label  style="color:whitesmoke">Image Preview</label>
+      <div class="div wrapper">  
+        <img id="myImg" class="rounded mx-auto d-block " src="{{imageUrl}}" style="margin:5%; width:80%; height:80%; ">
+        <div *ngFor="let d of personAge" id="rectangle" [ngStyle]="{top:getrecTop(d.faceRectangle.top),left:getrecLeft(d.faceRectangle.left),width:getrecW(d.faceRectangle.width),height:getrecH(d.faceRectangle.height)}"  ></div>
+      </div>
+    </div>
+    <div class="col-6">
+      <form>
 
 
 
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1" style="color:whitesmoke">Recognition DATA</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"> {{ personAge | json }} </textarea>
+        </div>
+      </form>
 
+    </div>
 
-
-
-
-
-
-{{ personAge | json }}
+  </div>
 </div>
